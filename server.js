@@ -7,15 +7,11 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 const db = require('knex')({
     client: 'pg',
     connection: {
-    //   host : 'postgresql-triangular-80012',
-      connectionString: process.env.DATABASE_URL,
-      ssl: {
-        rejectUnauthorized: false
-      }
+      host : 'postgresql-triangular-80012',
+    //   connectionString: process.env.DATABASE_URL,
+    //   ssl: true
     }
   });
-
-
 
 const app = express();
 app.use(express.json());
@@ -47,6 +43,7 @@ app.post('/signin', (req, res) => {
 //Registration
 
 app.post('/register', (req, res) => {
+    console.log('hi there')
     const { email, name, password } = req.body;
     var hash = bcrypt.hashSync(password);
     db.transaction(trx => {
