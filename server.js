@@ -67,7 +67,7 @@ app.post('/register', (req, res) => {
         .catch(trx.rollback)
     })
         
-        .catch(err => res.status(400).json('UNABLE'))
+        .catch(err => res.status(400).json('UNABLE TO REGISTER'))
 })
 
 //id
