@@ -4,15 +4,15 @@ const cors = require('cors');
 const knex = require('knex'
 )
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 const db = knex({
     client: 'pg',
-    connection: {
-      connectionString: 'postgres://iohkweqxbfponx:dc2191124926557386a0df7a3b2acc1c4511b49608026fc86c7c10681aa6c06b@ec2-54-157-149-88.compute-1.amazonaws.com:5432/dae4h97b5sjlv6',
-      ssl: true
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
     }
-  });
+});
 
 const app = express();
 app.use(express.json());
