@@ -33,10 +33,10 @@ app.post('/signin', (req, res) => {
             .catch(err => res.status(400).json('Unable to get the user'))
         }
         else{
-            res.status(400).json('Wrong Credentials')
+            res.status(400).json('Wrong ')
         }
     })
-    .catch(err => res.status(400).json('Wrong Credentials'))
+    .catch(err => res.status(400).json('Wrong '))
 })
 
 //Registration
