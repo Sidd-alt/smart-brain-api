@@ -4,7 +4,7 @@ const cors = require('cors');
 const db = require('knex')({
     client: 'pg',
     connection: {
-      host : 'postgresql-triangular-80012',
+    //   host : 'postgresql-triangular-80012',
       connectionString: process.env.DATABASE_URL,
       ssl: {
           rejectUnauthorized: false
