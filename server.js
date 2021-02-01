@@ -9,7 +9,9 @@ const db = require('knex')({
     connection: {
     //   host : 'postgresql-triangular-80012',
       connectionString: process.env.DATABASE_URL,
-      ssl: true
+      ssl: {
+        rejectUnauthorized: false
+      }
     }
   });
 
