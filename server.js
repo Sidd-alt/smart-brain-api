@@ -42,7 +42,6 @@ app.post('/signin', (req, res) => {
 //Registration
 
 app.post('/register', (req, res) => {
-    console.log('hi there')
     const { email, name, password } = req.body;
     var hash = bcrypt.hashSync(password);
     db.transaction(trx => {
@@ -68,7 +67,7 @@ app.post('/register', (req, res) => {
         .catch(trx.rollback)
     })
         
-        .catch(err => res.status(400).json('UNABLE TO REGISTER'))
+        .catch(err => res.status(400).json('UNABLE'))
 })
 
 //id
