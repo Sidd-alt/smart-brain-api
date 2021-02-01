@@ -5,9 +5,10 @@ const db = require('knex')({
     client: 'pg',
     connection: {
       host : 'postgresql-triangular-80012',
-      user : 'postgres',
-      password : 'postgres',
-      database : 'smart-brain'
+      connectionString: process.env.DATABASE_URL,
+      ssl: {
+          rejectUnauthorized: false
+      }
     }
   });
 
